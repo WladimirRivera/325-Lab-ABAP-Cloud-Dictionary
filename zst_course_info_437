@@ -4,5 +4,5 @@ define structure zst_course_info_437 {
   key course_code : zde_course_code_437;
   course_name     : abap.char(50);
   students        : zst_student_info_437;
-
+  teachers        : include zst_teacher_437;
 }
