@@ -1,0 +1,7 @@
+define dynamic cache ZDC_UNIVERSITY_437 on zuniversity_437
+{
+    count( * )    
+}
+//where where_condition
+//segregate cache data by filter_condition
+//creation configurable default off
