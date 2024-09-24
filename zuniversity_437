@@ -8,7 +8,7 @@ define table zuniversity_437 {
       soc      : bukrs not null 
       exercise : gjahr;
       students     : include zst_student_info_437;
-      course_price : abap.curr(16,2);
+      course_price : abap.curr(10,2);
       currency     : abap.cuky;
       @Semantics.quantity.unitOfMeasure : 'zuniversity_437.unit'
       courses      : abap.quan(10,2);
