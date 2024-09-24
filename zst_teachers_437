@@ -1,0 +1,8 @@
+@EndUserText.label : 'Structure - Multi Courses.'
+@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+define structure zst_teachers_437 {
+  teacher_id : abap.char(10);
+  teachers   : include zst_teacher_437;
+  students   : ztt_student_info_437;
+
+}
