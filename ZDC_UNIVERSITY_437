@@ -2,6 +2,6 @@ define dynamic cache ZDC_UNIVERSITY_437 on zuniversity_437
 {
     count( * )    
 }
-//where where_condition
+where exercise = '2024'
 //segregate cache data by filter_condition
 //creation configurable default off

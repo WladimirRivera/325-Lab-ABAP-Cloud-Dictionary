@@ -34,27 +34,21 @@ CLASS zcl_lock_obj_univ_437 IMPLEMENTATION.
         out->write( |Not possible to write on the database. Object is Locked| ).
         RETURN.
     ENDTRY.
-*   Adding records to the table using Modify
-    MODIFY zuniversity_437 FROM TABLE @( VALUE #( ( soc = 'LOG1'
-                                                    exercise = '2024'
-                                                    student_id = 't100437'
-                                                    first_name = 'Student'
-                                                    last_name = '1'
-                                                    course_code = '02'
-                                                    course_price = '300.55'
-                                                    currency = 'USD'
-                                                    courses = '5'
-                                                    unit = 'COU' ) ) ).
-    IF sy-subrc EQ 0.
-        out->write( |Rows Affected: { sy-dbcnt }| ).
-    ENDIF.
-    TRY.
-      
+
+* Counting the students at the university
+    SELECT FROM zuniversity_437
+    FIELDS
+    COUNT( * ) AS count_2
+    WHERE exercise EQ '2024'
+    INTO   @DATA(lt_dynamic).
+    out->write( lt_dynamic  ).
+
 *   Release Lock Object
-    lo_lock_object->dequeue( it_parameter  = lt_parametr  ).
-    CATCH cx_abap_lock_failure.
-      out->write( |Locked Object was released| ).
-      RETURN.
-  ENDTRY.
+    TRY.
+        lo_lock_object->dequeue( it_parameter  = lt_parametr  ).
+      CATCH cx_abap_lock_failure.
+        out->write( |Locked Object was released| ).
+        RETURN.
+    ENDTRY.
   ENDMETHOD.
 ENDCLASS.
