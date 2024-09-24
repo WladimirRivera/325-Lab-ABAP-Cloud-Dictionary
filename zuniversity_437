@@ -7,5 +7,5 @@ define table zuniversity_437 {
   key client   : abap.clnt not null;
       soc      : bukrs not null 
       exercise : gjahr;
-
+      students     : include zst_student_info_437;
 }
