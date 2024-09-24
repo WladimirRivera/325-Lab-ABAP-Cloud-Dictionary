@@ -5,12 +5,18 @@
 @AbapCatalog.dataMaintenance : #ALLOWED
 define table zuniversity_437 {
   key client   : abap.clnt not null;
-      soc      : bukrs not null 
-      exercise : gjahr;
-      students     : include zst_student_info_437;
-      course_price : abap.curr(10,2);
-      currency     : abap.cuky;
-      @Semantics.quantity.unitOfMeasure : 'zuniversity_437.unit'
-      courses      : abap.quan(10,2);
-      unit         : abap.unit(3);
+  @AbapCatalog.foreignKey.screenCheck : false
+  key soc      : bukrs not null
+    with foreign key [1,1] zuniv_tmp_user
+      where client = zuniversity_437.client
+        and soc = zuniversity_437.soc;
+  exercise     : gjahr;
+  students     : include zst_student_info_437;
+  @Semantics.amount.currencyCode : 'zuniversity_437.currency'
+  course_price : abap.curr(10,2);
+  currency     : abap.cuky;
+  @Semantics.quantity.unitOfMeasure : 'zuniversity_437.unit'
+  courses      : abap.quan(10,2);
+  unit         : abap.unit(3);
+
 }
