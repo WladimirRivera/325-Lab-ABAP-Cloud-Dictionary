@@ -2,6 +2,10 @@
 @AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
 define structure zst_teacher_437 {
   key teacher_name : abap.numc(4);
+  @AbapCatalog.foreignKey.screenCheck : false
+  key student_id   : zde_student_id_437
+    with foreign key zst_student_info_437
+      where student_id = zst_teacher_437.student_id;
   teacher_name_id  : abap.char(50);
 
 }
