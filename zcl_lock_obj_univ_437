@@ -26,6 +26,8 @@ CLASS zcl_lock_obj_univ_437 IMPLEMENTATION.
 
     lt_parametr = VALUE #( (  name = 'SOC'
                               value = REF #( 'LOG1' ) ) ).
+
+*   Request Lock Object
     TRY.
         lo_lock_object->enqueue( it_parameter  = lt_parametr  ).
       CATCH cx_abap_foreign_lock cx_abap_lock_failure.
@@ -46,5 +48,13 @@ CLASS zcl_lock_obj_univ_437 IMPLEMENTATION.
     IF sy-subrc EQ 0.
         out->write( |Rows Affected: { sy-dbcnt }| ).
     ENDIF.
+    TRY.
+      
+*   Release Lock Object
+    lo_lock_object->dequeue( it_parameter  = lt_parametr  ).
+    CATCH cx_abap_lock_failure.
+      out->write( |Locked Object was released| ).
+      RETURN.
+  ENDTRY.
   ENDMETHOD.
 ENDCLASS.
