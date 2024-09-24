@@ -1,0 +1,18 @@
+@EndUserText.label : 'Temporary Database Table - University'
+@AbapCatalog.enhancementCategory : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #GLOBAL_TEMPORARY
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zuniv_tmp_user {
+  key client   : abap.clnt not null;
+  key soc      : bukrs not null;
+  exercise     : gjahr;
+  students     : include zst_student_info_437;
+  @Semantics.amount.currencyCode : 'zuniversity_437.currency'
+  course_price : abap.curr(16,2);
+  currency     : abap.cuky;
+  @Semantics.quantity.unitOfMeasure : 'zuniversity_437.unit'
+  courses      : abap.quan(10,2);
+  unit         : abap.unit(3);
+
+}
