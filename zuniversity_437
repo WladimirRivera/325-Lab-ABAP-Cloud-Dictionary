@@ -5,6 +5,8 @@
 @AbapCatalog.dataMaintenance : #ALLOWED
 define table zuniversity_437 {
   key client   : abap.clnt not null;
+  @AbapCatalog.foreignKey.label : 'Society Key'
+  @AbapCatalog.foreignKey.keyType : #KEY
   @AbapCatalog.foreignKey.screenCheck : false
   key soc      : bukrs not null
     with foreign key [1,1] zuniv_tmp_user
