@@ -1,0 +1,11 @@
+@EndUserText.label : 'Database Table University Management'
+@AbapCatalog.enhancementCategory : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #ALLOWED
+define table zuniversity_437 {
+  key client   : abap.clnt not null;
+      soc      : bukrs not null 
+      exercise : gjahr;
+
+}
