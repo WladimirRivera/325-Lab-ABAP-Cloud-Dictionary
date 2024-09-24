@@ -1,0 +1,7 @@
+@EndUserText.label : 'Structure - Teacher'
+@AbapCatalog.enhancementCategory : #NOT_EXTENSIBLE
+define structure zst_teacher_437 {
+  key teacher_name : abap.numc(4);
+  teacher_name_id  : abap.char(50);
+
+}

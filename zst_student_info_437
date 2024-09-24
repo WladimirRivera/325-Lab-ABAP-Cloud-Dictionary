@@ -1,7 +1,7 @@
 @EndUserText.label : 'Structure - Student Info'
 @AbapCatalog.enhancementCategory : #EXTENSIBLE_ANY
 define structure zst_student_info_437 {
-  key student_id : zde_student_id_437;
+  student_id : zde_student_id_437;
   first_name     : abap.char(30);
   last_name      : abap.char(30);
   course_code    : zde_course_code_437;
